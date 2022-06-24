@@ -11,8 +11,8 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/AWF-api/v1")
-@CrossOrigin(origins = "http://localhost:8080")
+@RequestMapping("/AWF-app/v1")
+@CrossOrigin(origins = "http://localhost:4200")
 public class AWFController {
 
     @Autowired

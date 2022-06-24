@@ -4,6 +4,7 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -20,6 +21,27 @@ public class Provider {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id_provider", nullable = false)
     private Long id_provider;
+
+    @Column(name = "name", nullable = false)
+    private String name;
+
+    @Column(name = "CIF")
+    private String CIF;
+
+    @Column(name = "NIF")
+    private String NIF;
+
+    @Column(name = "category")
+    private String category;
+
+    @Column(name = "id_contact")
+    private int id_contact;
+
+    @Column(name = "country")
+    private String country;
+
+    @Column(name = "since_date")
+    private LocalDate since_date;
 
     @Override
     public boolean equals(Object o) {

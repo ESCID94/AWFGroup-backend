@@ -13,7 +13,7 @@ import java.util.List;
 @RestController
 @RequestMapping("/AWF-app/v1")
 @CrossOrigin(origins = "http://localhost:4200")
-public class AWFController {
+public class EmployeeController {
 
     @Autowired
     private EmployeeRepository employeeRepository;

@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/AWF-app/v1/employees")
 @CrossOrigin(origins = "http://localhost:4200")
 public class EmployeeController {
 
@@ -17,13 +16,13 @@ public class EmployeeController {
     private EmployeeRepository repository;
 
     //List all objects
-    @GetMapping("/")
+    @GetMapping("/employees")
     public List<Employee> listAllEmployees(){
         return repository.findAll();
     }
 
     //Save an object
-    @PostMapping("/")
+    @PostMapping("/employees")
     void addEmployee(@RequestBody Employee employee) {repository.save(employee);}
 
     //Get an object by id
@@ -38,6 +37,6 @@ public class EmployeeController {
     }
 
     //Deletes an object
-    @PostMapping("/deleteById")
+    @PostMapping("/deleteEmployeeById")
     void deleteEmployee(@RequestBody Employee employee) {repository.delete(employee);}
 }

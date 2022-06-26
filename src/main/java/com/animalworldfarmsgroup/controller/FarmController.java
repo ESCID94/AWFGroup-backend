@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/AWF-app/v1/farms")
 @CrossOrigin(origins = "http://localhost:4200")
 public class FarmController {
 
@@ -17,13 +16,13 @@ public class FarmController {
     private FarmRepository repository;
 
     //List all objects
-    @GetMapping("/")
+    @GetMapping("/farms")
     public List<Farm> listAllFarms(){
         return repository.findAll();
     }
 
     //Save an object
-    @PostMapping("/")
+    @PostMapping("/farms")
     void addFarm(@RequestBody Farm farm) {repository.save(farm);}
 
     //Get an object by id
@@ -38,6 +37,6 @@ public class FarmController {
     }
 
     //Deletes an object
-    @PostMapping("/deleteById")
+    @PostMapping("/deleteFarmById")
     void deleteFarm(@RequestBody Farm farm) {repository.delete(farm);}
 }

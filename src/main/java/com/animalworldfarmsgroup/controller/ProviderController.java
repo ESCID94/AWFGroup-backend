@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/AWF-app/v1/providers")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ProviderController {
 
@@ -17,13 +16,13 @@ public class ProviderController {
     private ProviderRepository repository;
 
     //List all objects
-    @GetMapping("/")
+    @GetMapping("/providers")
     public List<Provider> listAllProviders(){
         return repository.findAll();
     }
 
     //Save an object
-    @PostMapping("/")
+    @PostMapping("/providers")
     void addProvider(@RequestBody Provider provider) {repository.save(provider);}
 
     //Get an object by id
@@ -38,6 +37,6 @@ public class ProviderController {
     }
 
     //Deletes an object
-    @PostMapping("/deleteById")
+    @PostMapping("/deleteProviderById")
     void deleteProvider(@RequestBody Provider provider) {repository.delete(provider);}
 }

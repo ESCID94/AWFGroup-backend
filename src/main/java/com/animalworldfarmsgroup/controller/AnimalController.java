@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/AWF-app/v1/animals")
 @CrossOrigin(origins = "http://localhost:4200")
 public class AnimalController {
 
@@ -17,13 +16,13 @@ public class AnimalController {
     private AnimalRepository repository;
 
     //List all objects
-    @GetMapping("/")
+    @GetMapping("/animals")
     public List<Animal> listAllAnimals(){
         return repository.findAll();
     }
 
     //Save an object
-    @PostMapping("/")
+    @PostMapping("/animals")
     void addAnimal(@RequestBody Animal animal) {repository.save(animal);}
 
     //Get an object by id
@@ -38,6 +37,6 @@ public class AnimalController {
     }
 
     //Deletes an object
-    @PostMapping("/deleteById")
+    @PostMapping("/deleteAnimalById")
     void deleteAnimal(@RequestBody Animal animal) {repository.delete(animal);}
 }

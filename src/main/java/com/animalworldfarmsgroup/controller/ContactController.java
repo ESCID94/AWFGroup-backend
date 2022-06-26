@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/AWF-app/v1/contacts")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ContactController {
 
@@ -17,13 +16,13 @@ public class ContactController {
     private ContactRepository repository;
 
     //List all objects
-    @GetMapping("/")
+    @GetMapping("/contacts")
     public List<Contact> listAllContacts(){
         return repository.findAll();
     }
 
     //Save an object
-    @PostMapping("/")
+    @PostMapping("/contacts")
     void addContact(@RequestBody Contact contact) {repository.save(contact);}
 
     //Get an object by id
@@ -38,6 +37,6 @@ public class ContactController {
     }
 
     //Deletes an object
-    @PostMapping("/deleteById")
+    @PostMapping("/deleteContactById")
     void deleteContact(@RequestBody Contact contact) {repository.delete(contact);}
 }

@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/AWF-app/v1/sectors")
 @CrossOrigin(origins = "http://localhost:4200")
 public class SectorController {
 
@@ -17,13 +16,13 @@ public class SectorController {
     private SectorRepository repository;
 
     //List all objects
-    @GetMapping("/")
+    @GetMapping("/sectors")
     public List<Sector> listAllSectors(){
         return repository.findAll();
     }
 
     //Save an object
-    @PostMapping("/")
+    @PostMapping("/sectors")
     void addSector(@RequestBody Sector sector) {repository.save(sector);}
 
     //Get an object by id
@@ -38,6 +37,6 @@ public class SectorController {
     }
 
     //Deletes an object
-    @PostMapping("/deleteById")
+    @PostMapping("/deleteSectorById")
     void deleteSector(@RequestBody Sector sector) {repository.delete(sector);}
 }

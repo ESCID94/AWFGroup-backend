@@ -9,7 +9,6 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
-@RequestMapping("/AWF-app/v1/buyers")
 @CrossOrigin(origins = "http://localhost:4200")
 public class BuyerController {
 
@@ -17,13 +16,13 @@ public class BuyerController {
     private BuyerRepository repository;
 
     //List all objects
-    @GetMapping("/")
+    @GetMapping("/buyers")
     public List<Buyer> listAllBuyers(){
         return repository.findAll();
     }
 
     //Save an object
-    @PostMapping("/")
+    @PostMapping("/buyers")
     void addBuyer(@RequestBody Buyer buyer) {repository.save(buyer);}
 
     //Get an object by id
@@ -38,6 +37,6 @@ public class BuyerController {
     }
 
     //Deletes an object
-    @PostMapping("/deleteById")
+    @PostMapping("/deleteBuyerById")
     void deleteBuyer(@RequestBody Buyer buyer) {repository.delete(buyer);}
 }

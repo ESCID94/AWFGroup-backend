@@ -5,13 +5,11 @@ import com.animalworldfarmsgroup.repository.AnimalRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/AWF-app/v1")
+@RequestMapping("/AWF-app/v1/animals")
 @CrossOrigin(origins = "http://localhost:4200")
 public class AnimalController {
 
@@ -19,13 +17,13 @@ public class AnimalController {
     private AnimalRepository repository;
 
     //List all objects
-    @GetMapping("/animals")
+    @GetMapping("/")
     public List<Animal> listAllAnimals(){
         return repository.findAll();
     }
 
     //Save an object
-    @PostMapping("/animals")
+    @PostMapping("/")
     void addAnimal(@RequestBody Animal animal) {repository.save(animal);}
 
     //Get an object by id

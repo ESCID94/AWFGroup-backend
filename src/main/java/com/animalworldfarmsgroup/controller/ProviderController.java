@@ -1,25 +1,43 @@
 package com.animalworldfarmsgroup.controller;
 
-import com.animalworldfarmsgroup.model.Employee;
-import com.animalworldfarmsgroup.repository.EmployeeRepository;
+import com.animalworldfarmsgroup.model.Provider;
+import com.animalworldfarmsgroup.repository.ProviderRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
-@RequestMapping("/AWF-app/v1")
+@RequestMapping("/AWF-app/v1/providers")
 @CrossOrigin(origins = "http://localhost:4200")
 public class ProviderController {
 
     @Autowired
-    private EmployeeRepository employeeRepository;
+    private ProviderRepository repository;
 
-    @GetMapping("/employees")
-    public List<Employee> listAllEmployees(){
-        return employeeRepository.findAll();
+    //List all objects
+    @GetMapping("/")
+    public List<Provider> listAllProviders(){
+        return repository.findAll();
     }
+
+    //Save an object
+    @PostMapping("/")
+    void addProvider(@RequestBody Provider provider) {repository.save(provider);}
+
+    //Get an object by id
+    @GetMapping("/providerById")
+    public Optional<Provider> getProvider(@RequestBody Provider provider){ return repository.findById(provider.getId_provider());}
+
+    //List objects by id
+    @GetMapping("/providersById")
+    public List<Provider> listProvidersByIds(@RequestBody List<Provider> providers) {
+        List<Long> listIds = providers.stream().map(Provider::getId_provider).toList();
+        return repository.findAllById(listIds);
+    }
+
+    //Deletes an object
+    @PostMapping("/deleteById")
+    void deleteProvider(@RequestBody Provider provider) {repository.delete(provider);}
 }

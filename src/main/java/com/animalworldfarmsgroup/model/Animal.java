@@ -34,7 +34,7 @@ public class Animal {
     private String sex;
 
     @Column(name = "weight", nullable = false)
-    private BigDecimal weight;
+    private double weight;
 
     @Column(name = "lot", nullable = false)
     private int lot;
@@ -56,6 +56,21 @@ public class Animal {
 
     @Column(name = "sold_date")
     private LocalDate sold_date;
+
+    public Animal(String type, String breed, String sex, double weight, int lot,
+                  long id_sector, long id_farm, LocalDate birth_date, LocalDate deceased_date, LocalDate sale_date, LocalDate sold_date) {
+        this.type = type;
+        this.breed = breed;
+        this.sex = sex;
+        this.weight = weight;
+        this.lot = lot;
+        this.id_sector = id_sector;
+        this.id_farm = id_farm;
+        this.birth_date = birth_date;
+        this.deceased_date = deceased_date;
+        this.sale_date = sale_date;
+        this.sold_date = sold_date;
+    }
 
     @Override
     public boolean equals(Object o) {

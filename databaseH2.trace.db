@@ -1,0 +1,3 @@
+2022-06-28 23:32:52 jdbc[74]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "PRODUCTS" not found; SQL statement:
+select * from products [42102-212]

@@ -4,7 +4,6 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -35,9 +34,6 @@ public class Sale {
     // total price for the sale of the animal
     @Column(name = "price", nullable = false)
     private int price;
-
-    @Column(name = "sale_date")
-    private LocalDate sale_date;
 
     @Override
     public boolean equals(Object o) {

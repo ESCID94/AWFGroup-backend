@@ -36,6 +36,6 @@ public class AnimalController {
     }
 
     //Deletes an object
-    @PostMapping("/deleteAnimalById")
+    @DeleteMapping("/deleteAnimalById")
     void deleteAnimal(@RequestBody Animal animal) {repository.delete(animal);}
 }

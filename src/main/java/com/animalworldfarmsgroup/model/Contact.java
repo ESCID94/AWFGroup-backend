@@ -4,7 +4,6 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -48,9 +47,6 @@ public class Contact {
 
     @Column(name = "category")
     private String category;
-
-    @Column(name = "since_date")
-    private LocalDate since_date;
 
     @Override
     public boolean equals(Object o) {

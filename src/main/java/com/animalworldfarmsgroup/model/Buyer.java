@@ -4,7 +4,6 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -39,9 +38,6 @@ public class Buyer {
 
     @Column(name = "country")
     private String country;
-
-    @Column(name = "since_date")
-    private LocalDate since_date;
 
     @Override
     public boolean equals(Object o) {

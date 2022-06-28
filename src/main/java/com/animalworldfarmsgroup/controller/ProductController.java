@@ -22,7 +22,8 @@ public class ProductController {
 
     //Save an object
     @PostMapping("/products")
-    void addProduct(@RequestBody Product product) {repository.save(product);}
+    void addProduct(@RequestBody Product product) {
+        repository.save(product);}
 
     //Get an object by id
     @GetMapping("/productById")

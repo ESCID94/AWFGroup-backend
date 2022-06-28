@@ -4,7 +4,6 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -36,12 +35,6 @@ public class Sector {
 
     @Column(name = "id_employee")
     private Long id_employee;
-
-    @Column(name = "creation_date", nullable = false)
-    private LocalDate creation_date;
-
-    @Column(name = "deactivated_date")
-    private LocalDate deactivated_date;
 
     @Override
     public boolean equals(Object o) {

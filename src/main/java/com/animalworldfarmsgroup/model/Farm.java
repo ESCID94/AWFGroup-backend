@@ -4,7 +4,6 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -33,12 +32,6 @@ public class Farm {
 
     @Column(name = "total_sectors")
     private String total_sectors;
-
-    @Column(name = "creation_date", nullable = false)
-    private LocalDate creation_date;
-
-    @Column(name = "deactivated_date")
-    private LocalDate deactivated_date;
 
     @Override
     public boolean equals(Object o) {

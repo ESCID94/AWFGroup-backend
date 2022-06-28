@@ -7,10 +7,6 @@ CREATE TABLE IF NOT EXISTS ANIMAL (
     lot   int NOT NULL,
     id_sector  int  NOT NULL,
     id_farm    int NOT NULL,
-    birth_date DATE NOT NULL,
-    deceased_date DATE,
-    sale_date DATE,
-    sold_date DATE,
     CONSTRAINT animal_pk PRIMARY KEY (id_animal)
 );
 
@@ -19,7 +15,6 @@ CREATE TABLE IF NOT EXISTS EMPLOYEE (
     id_employee  int  NOT NULL auto_increment,
     name VARCHAR(50) NOT NULL,
     last_name    VARCHAR(50) NOT NULL,
-    birth_date DATE NOT NULL,
     salary int,
     category VARCHAR(50),
     CONSTRAINT employee_pk PRIMARY KEY (id_employee)
@@ -32,8 +27,6 @@ CREATE TABLE IF NOT EXISTS FARM(
     location    VARCHAR(50) NOT NULL,
     farm_size int,
     total_sectors VARCHAR(50),
-    creation_date DATE NOT NULL,
-    deactivated_date DATE,
     CONSTRAINT farm_pk PRIMARY KEY (id_farm)
 );
 
@@ -45,8 +38,6 @@ CREATE TABLE IF NOT EXISTS SECTOR(
     location    VARCHAR(50) NOT NULL,
     id_farm int,
     id_employee int,
-    creation_date DATE NOT NULL,
-    deactivated_date DATE,
     CONSTRAINT sector_pk PRIMARY KEY (id_sector)
 );
 
@@ -59,7 +50,6 @@ CREATE TABLE IF NOT EXISTS PROVIDER (
     category VARCHAR(50),
     id_contact int,
     country VARCHAR(20),
-    since_date DATE,
     CONSTRAINT provider_pk PRIMARY KEY (id_provider)
 );
 
@@ -75,7 +65,6 @@ CREATE TABLE IF NOT EXISTS CONTACT (
     CIF    VARCHAR(50),
     NIF VARCHAR(50),
     category VARCHAR(50),
-    since_date DATE,
     CONSTRAINT contact_pk PRIMARY KEY (id_contact)
 );
 
@@ -97,7 +86,6 @@ CREATE TABLE IF NOT EXISTS BUYER (
     category VARCHAR(50),
     id_contact int,
     country VARCHAR(20),
-    since_date DATE,
     CONSTRAINT buyer_pk PRIMARY KEY (id_buyer)
 );
 
@@ -107,22 +95,5 @@ CREATE TABLE IF NOT EXISTS SALE(
     id_buyer int,
     quantity int,
     price int,
-    sale_date DATE,
     CONSTRAINT sale_pk PRIMARY KEY (id_sale)
 );
-
-ALTER TABLE ANIMAL ADD FOREIGN KEY (id_sector) REFERENCES SECTOR(id_sector);
-ALTER TABLE ANIMAL ADD FOREIGN KEY (id_farm) REFERENCES FARM(id_farm);
-
-
-ALTER TABLE SECTOR ADD FOREIGN KEY (id_farm) REFERENCES FARM(id_farm);
-ALTER TABLE SECTOR ADD FOREIGN KEY (id_employee) REFERENCES EMPLOYEE(id_employee);
-
-ALTER TABLE PROVIDER ADD FOREIGN KEY (id_contact) REFERENCES CONTACT(id_contact);
-
-ALTER TABLE PRODUCT ADD FOREIGN KEY (id_provider) REFERENCES PROVIDER(id_provider);
-
-ALTER TABLE BUYER ADD FOREIGN KEY (id_contact) REFERENCES CONTACT(id_contact);
-
-ALTER TABLE SALE ADD FOREIGN KEY (id_animal) REFERENCES ANIMAL(id_animal);
-ALTER TABLE SALE ADD FOREIGN KEY (id_buyer) REFERENCES BUYER(id_buyer);

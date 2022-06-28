@@ -4,7 +4,6 @@ import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.util.Objects;
 
 @Getter
@@ -27,9 +26,6 @@ public class Employee {
 
     @Column(name = "last_name", nullable = false)
     private String last_name;
-
-    @Column(name = "birth_date")
-    private LocalDate birth_date;
 
     @Column(name = "salary")
     private int salary;

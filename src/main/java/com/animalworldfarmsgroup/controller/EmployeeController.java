@@ -25,17 +25,17 @@ public class EmployeeController {
     void addEmployee(@RequestBody Employee employee) {repository.save(employee);}
 
     //Get an object by id
-    @GetMapping("/employeeById")
+    @GetMapping("/employees/employeeById")
     public Optional<Employee> getEmployee(@RequestBody Employee employee){ return repository.findById(employee.getId_employee());}
 
     //List objects by id
-    @GetMapping("/employeesById")
+    @GetMapping("/employees/employeesById")
     public List<Employee> listEmployeesByIds(@RequestBody List<Employee> employees) {
         List<Long> listIds = employees.stream().map(Employee::getId_employee).toList();
         return repository.findAllById(listIds);
     }
 
     //Deletes an object
-    @PostMapping("/deleteEmployeeById")
+    @DeleteMapping("/employees/deleteEmployeeById")
     void deleteEmployee(@RequestBody Employee employee) {repository.delete(employee);}
 }

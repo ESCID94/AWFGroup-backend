@@ -25,17 +25,17 @@ public class ProviderController {
     void addProvider(@RequestBody Provider provider) {repository.save(provider);}
 
     //Get an object by id
-    @GetMapping("/providerById")
+    @GetMapping("/providers/providerById")
     public Optional<Provider> getProvider(@RequestBody Provider provider){ return repository.findById(provider.getId_provider());}
 
     //List objects by id
-    @GetMapping("/providersById")
+    @GetMapping("/providers/providersById")
     public List<Provider> listProvidersByIds(@RequestBody List<Provider> providers) {
         List<Long> listIds = providers.stream().map(Provider::getId_provider).toList();
         return repository.findAllById(listIds);
     }
 
     //Deletes an object
-    @PostMapping("/deleteProviderById")
+    @DeleteMapping("/providers/deleteProviderById")
     void deleteProvider(@RequestBody Provider provider) {repository.delete(provider);}
 }

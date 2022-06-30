@@ -25,17 +25,17 @@ public class BuyerController {
     void addBuyer(@RequestBody Buyer buyer) {repository.save(buyer);}
 
     //Get an object by id
-    @GetMapping("/buyerById")
+    @GetMapping("/buyers/buyerById")
     public Optional<Buyer> getBuyer(@RequestBody Buyer buyer){ return repository.findById(buyer.getId_buyer());}
 
     //List objects by id
-    @GetMapping("/buyersById")
+    @GetMapping("/buyers/buyersById")
     public List<Buyer> listBuyersByIds(@RequestBody List<Buyer> buyers) {
         List<Long> listIds = buyers.stream().map(Buyer::getId_buyer).toList();
         return repository.findAllById(listIds);
     }
 
     //Deletes an object
-    @PostMapping("/deleteBuyerById")
+    @DeleteMapping("/buyers/deleteBuyerById")
     void deleteBuyer(@RequestBody Buyer buyer) {repository.delete(buyer);}
 }

@@ -25,17 +25,17 @@ public class FarmController {
     void addFarm(@RequestBody Farm farm) {repository.save(farm);}
 
     //Get an object by id
-    @GetMapping("/farmById")
+    @GetMapping("/farms/farmById")
     public Optional<Farm> getFarm(@RequestBody Farm farm){ return repository.findById(farm.getId_farm());}
 
     //List objects by id
-    @GetMapping("/farmsById")
+    @GetMapping("/farms/farmsById")
     public List<Farm> listFarmsByIds(@RequestBody List<Farm> farms) {
         List<Long> listIds = farms.stream().map(Farm::getId_farm).toList();
         return repository.findAllById(listIds);
     }
 
     //Deletes an object
-    @PostMapping("/deleteFarmById")
+    @DeleteMapping("/farms/deleteFarmById")
     void deleteFarm(@RequestBody Farm farm) {repository.delete(farm);}
 }

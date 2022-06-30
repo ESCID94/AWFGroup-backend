@@ -25,17 +25,17 @@ public class SectorController {
     void addSector(@RequestBody Sector sector) {repository.save(sector);}
 
     //Get an object by id
-    @GetMapping("/sectorById")
+    @GetMapping("/sectors/sectorById")
     public Optional<Sector> getSector(@RequestBody Sector sector){ return repository.findById(sector.getId_sector());}
 
     //List objects by id
-    @GetMapping("/sectorsById")
+    @GetMapping("/sectors/sectorsById")
     public List<Sector> listSectorsByIds(@RequestBody List<Sector> sectors) {
         List<Long> listIds = sectors.stream().map(Sector::getId_sector).toList();
         return repository.findAllById(listIds);
     }
 
     //Deletes an object
-    @PostMapping("/deleteSectorById")
+    @DeleteMapping("/sectors/deleteSectorById")
     void deleteSector(@RequestBody Sector sector) {repository.delete(sector);}
 }

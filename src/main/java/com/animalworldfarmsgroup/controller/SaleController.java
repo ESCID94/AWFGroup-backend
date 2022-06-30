@@ -25,17 +25,17 @@ public class SaleController {
     void addSale(@RequestBody Sale sale) {repository.save(sale);}
 
     //Get an object by id
-    @GetMapping("/saleById")
+    @GetMapping("/sales/saleById")
     public Optional<Sale> getSale(@RequestBody Sale sale){ return repository.findById(sale.getId_sale());}
 
     //List objects by id
-    @GetMapping("/salesById")
+    @GetMapping("/sales/salesById")
     public List<Sale> listSalesByIds(@RequestBody List<Sale> sales) {
         List<Long> listIds = sales.stream().map(Sale::getId_sale).toList();
         return repository.findAllById(listIds);
     }
 
     //Deletes an object
-    @PostMapping("/deleteSaleById")
+    @DeleteMapping("/sales/deleteSaleById")
     void deleteSale(@RequestBody Sale sale) {repository.delete(sale);}
 }

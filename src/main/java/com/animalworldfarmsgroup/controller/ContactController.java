@@ -25,17 +25,17 @@ public class ContactController {
     void addContact(@RequestBody Contact contact) {repository.save(contact);}
 
     //Get an object by id
-    @GetMapping("/contactById")
+    @GetMapping("/contacts/contactById")
     public Optional<Contact> getContact(@RequestBody Contact contact){ return repository.findById(contact.getId_contact());}
 
     //List objects by id
-    @GetMapping("/contactsById")
+    @GetMapping("/contacts/contactsById")
     public List<Contact> listContactsByIds(@RequestBody List<Contact> contacts) {
         List<Long> listIds = contacts.stream().map(Contact::getId_contact).toList();
         return repository.findAllById(listIds);
     }
 
     //Deletes an object
-    @PostMapping("/deleteContactById")
+    @DeleteMapping("/contacts/deleteContactById")
     void deleteContact(@RequestBody Contact contact) {repository.delete(contact);}
 }

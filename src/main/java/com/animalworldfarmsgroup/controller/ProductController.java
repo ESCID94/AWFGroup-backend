@@ -26,17 +26,17 @@ public class ProductController {
         repository.save(product);}
 
     //Get an object by id
-    @GetMapping("/productById")
+    @GetMapping("/products/productById")
     public Optional<Product> getProduct(@RequestBody Product product){ return repository.findById(product.getId_product());}
 
     //List objects by id
-    @GetMapping("/productsById")
+    @GetMapping("/products/productsById")
     public List<Product> listProductsByIds(@RequestBody List<Product> products) {
         List<Long> listIds = products.stream().map(Product::getId_product).toList();
         return repository.findAllById(listIds);
     }
 
     //Deletes an object
-    @PostMapping("/deleteProductById")
+    @DeleteMapping("/products/deleteProductById")
     void deleteProduct(@RequestBody Product product) {repository.delete(product);}
 }

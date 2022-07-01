@@ -10,7 +10,7 @@
 	</parent>
 	<groupId>com.animalworldfarmsgroup</groupId>
 	<artifactId>AWFGroup-backend</artifactId>
-	<version>0.0.1-SNAPSHOT</version>
+	<version>0.1.0-SNAPSHOT</version>
 	<name>AWFGroup-backend</name>
 	<description>API-REST app for Animal World Farms Organization</description>
 	<properties>

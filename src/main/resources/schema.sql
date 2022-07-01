@@ -1,3 +1,8 @@
+CREATE TABLE IF NOT EXISTS USERS (
+    email VARCHAR(50) PRIMARY KEY,
+    password VARCHAR(50)
+);
+
 CREATE TABLE IF NOT EXISTS ANIMAL (
     id_animal  int  NOT NULL auto_increment,
     type VARCHAR(50) NOT NULL,

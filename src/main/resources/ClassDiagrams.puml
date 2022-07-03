@@ -1,0 +1,58 @@
+@startuml
+'https://plantuml.com/class-diagram
+
+package Repository{
+class JpaRepository
+}
+package Services{
+interface AnimalService extends JpaRepository
+interface BuyerService extends JpaRepository
+interface ContactService extends JpaRepository
+interface EmployeeService extends JpaRepository
+interface FarmService extends JpaRepository
+interface ProductService extends JpaRepository
+interface ProviderService extends JpaRepository
+interface SaleService extends JpaRepository
+interface SectorService extends JpaRepository
+interface UserService extends JpaRepository
+}
+
+package Model{
+class Animal
+class Buyer
+class Contact
+class Employee
+class Farm
+class Product
+class Provider
+class Sale
+class Sector
+class User
+}
+
+package Controller{
+class AnimalController
+class BuyerController
+class ContactController
+class EmployeeController
+class FarmController
+class ProductController
+class ProviderController
+class SaleController
+class SectorController
+class UserController
+}
+Services --Controller
+SpringBootApplication -- Controller
+
+Animal -- AnimalService
+Buyer -- BuyerService
+Contact -- ContactService
+Employee -- EmployeeService
+Farm -- FarmService
+Product -- ProductService
+Provider -- ProviderService
+Sale -- SaleService
+Sector -- SectorService
+User -- UserService
+@enduml
